@@ -1,0 +1,90 @@
+﻿@page
+@model WebApplicationLanding.homepageModel
+@{
+    ViewData["Title"] = "homepage";
+}
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Homepage header</title>
+    <link href="Styles.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="~/Bootstrap/bootstrap.min.css">
+
+</head>
+<body style="background-image:url('img/cube_dark_login.jpg')">
+    <div id="wrapper">
+        <h1>homepage</h1>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Portfolio app</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Data</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact Me</a></li>
+                </ul>
+            </div>
+        </nav>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Portfolio app</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Data</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact Me</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="jumbotron jumbotron-fluid">
+            <h1 class="display-4">James Davis: Softdev</h1>
+            <p class="lead">Now That I have you attention, welcome to my first web App. Please see all listings below.</p>
+        </div>
+        <h1>Portfolio Github Project</h1>
+        <p>Welcome to the main content of the portfolio page. Here you can view various styling techniques that
+        I have used to create this app system. </p>
+        <p class="lead">
+            <a class="btn btn-primary-large" href="#" role="button">Learn more</a>
+        </p>
+        <div class="d-inline-flex">An App for developers</div>
+        <div class="container">
+            <h3><b>Experiences:</b></h3>
+            <nav class="dev-list">
+                <ul class="offset-3">
+                    <li><strong>Visual Studio</strong></li>
+                    <li><strong>Unity 3D</strong></li>
+                    <li><strong>Android Studio</strong></li>
+                    <li><strong>Web Development Tools</strong></li>
+                </ul>
+            </nav>
+        </div>
+
+        <nav aria-label="Page Navigation">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link">1</a></li>
+                <li class="page-item"><a class="page-link">2</a></li>
+                <li class="page-item"><a class="page-link">3</a></li>
+                <li class="page-item"><a class="page-link">4</a></li>
+            </ul>
+        </nav>
+    </div>
+    <footer class="page-footer font-small pt-4">
+        <div class=" container-fluid text-center text-md-center">
+            <div class="row">
+                <div class="col-md-6 mt-0">
+                    <h5><b>James Davis-Dev 2020</b></h5>
+                </div>
+            </div>
+            <div class="footer-copyright text-center py-3">Copyright:
+            </div>
+        </div>
+    </footer>
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>

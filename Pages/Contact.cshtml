@@ -1,0 +1,131 @@
+﻿@page
+@model WebApplicationLanding.ContactModel
+@{
+    ViewData["Title"] = "Contact";
+}
+@Html.AntiForgeryToken()
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Homepage header</title>
+    <link href="Styles.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="~/Bootstrap/bootstrap.min.css">
+    <ajaxToolkit:Modal
+    <script language="C#" runat="server">
+        var errorMessage = "";
+
+        void Buttonsend_Click(object sender, EventArgs e)
+        {
+            try {
+                SendMail();
+                submitDialog.visible = true;
+                sendStatus.visible = true;
+                sendStatus.FontBold = true;
+                sendStatus.Text = "Messsage Sent";
+
+            }
+            catch (Exception ex ) {
+                errorMessage = ex.Message;
+                Response.StatusCode = 400;
+            }
+        }
+    </script>
+</head>
+    <body>
+        <div id="wrapper">
+            <h1>@ViewData["Title"] - Contact</h1>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="#">Portfolio app</a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li><a class="nav-link text-dark" asp-area="" asp-page="/Index.cshtml">Home</a></li>
+                        <li><a href="Home/Login.cshtml">Login</a></li>
+                        <li><a href="javascript:alert('This page does not exist yet');">Data</a></li>
+                        <li><a href="javascript:alert('This page does not exist yet');">About</a></li>
+                        <li><a href="Home/Contact.cshtml">Contact Me</a></li>
+                    </ul>
+                </div>
+            </nav>
+            @*<nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Portfolio app</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="Pages/Shared/Login.cshtml">Login</a></li>
+                    <li><a href="#">Data</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact Me</a></li>
+                </ul>
+            </div>
+        </nav>*@
+            <div class="contact-form">
+                <h3 class="form-heading">Contact Me</h3>
+            </div>
+            <form method="post" id="portfolio-contact" onsubmit="return validate()" runat="server">
+                <p class="form-tagline">Please fill in the form below to contact me, or ask me anything</p>
+                <div class="form-group">
+                    <div class="form-group">
+                        <asp:Label ID="lblmsg" runat="server" CssClass="inputform">Full Name</asp:Label>
+                        <span class="error-box" visible="false">Error Message</span>
+                        <input type="text" ID="name" runat="server" CssClass="inputform" placeholder="Name" ClientIDmode="static"></input>
+                    </div>
+                    <div class="form-group">
+                        <span class="error-box" visible="false">Unrecogised Email</span>
+                        <label id="emailLbl" runat="server" CssClass="inputform" ClientIDMode="Static" />
+                        <input type="email" name="email" runat="server" CssClass="inputform" ClientIDMode="Static" placeholder="Email Address"></input>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Company">Enter company name if applicable</label>
+                        <input asp-for="Company" runat="server" CssClass="inputform" ClientIDMode="Static" placeholder="Company Name" />
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Message">Write your message here:</label>
+                        <textarea asp-for="Message" runat="server" cols="75" CssClass="inputform" ClientIDMode="Static" placeholder="..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <h3>Please indicate what you are interested in</h3>
+                        <p>Select applicable checkboxes</p>
+                        <input type="checkbox" class="form-check-input" id="hirecheck">
+                        <label class="form-check-label" for="hirecheck">A Pernament Job/Work opportunity</label><br />
+                        <input type="checkbox" class="form-check-input" id="hirecheck2">
+                        <label class="form-check-label" for="hirecheck2">Temporary/Contract Work</label><br /> 
+                        <input type="checkbox" class="form-check-input" id="freelancecheck">
+                        <label class="form-check-label" for="freelancecheck">Freelance work/Projects</label><br />
+                        <input type="checkbox" class="form-check-input" id="coursecheck">
+                        <label class="form-check-label" for="coursecheck">Training Course</label><br />
+                        <input type="checkbox" class="form-check-input" id="othercheck">
+                        <label class="form-check-label" for="othercheck">Training Course</label><br />
+                    </div>
+                    <div class="form-send" id="submit">
+                        <div class="send-button">
+                            <button type="submit" class="btn btn-primary btn-lg" id="submitbutton" runat="server" value="submit" OnClick="Buttonsend_click">Submit</button>
+                            <br />
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="modal" tabindex="-1" role="dialog" id="submitDialog" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <asp:label id="sendStatus" runat="server" CssClass="inputform" visble="false"></asp:label>
+                            <h5 class="modal-title">Thank you for your message</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                            <img class="modal-icon" src="~/img/" />
+                        </div>
+                        <div class="modal-body">
+                            <p class="modal-content">I will be sure to read it soon</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

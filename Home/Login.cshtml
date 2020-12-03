@@ -1,0 +1,55 @@
+﻿@page
+@model WebApplicationLanding.LoginModel
+@{
+    ViewData["Title"] = "Login";
+}
+@Html.AntiForgeryToken();
+<!DOCTYPE html>
+<html xmnls="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta name="viewport" content="width=device-width, intial-scale=1, shrink-to-fit=no" />
+    <link rel="shortcut icon" href="~/favicon.ico" />
+    <meta name="author" content="colorlib" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="~/Bootstrap/bootstrap.css" />
+    <link rel="stylesheet" href="~/Bootstrap/bootstrap-grid.css" />
+    <title>Asp App Login</title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+</head>
+<body style="background-image:url('img/cube_dark_login.jpg')">
+    <form id="form1" runat="server">
+        <div class="panel panel-default" itemscope itemid="Panel1" runat="server"
+            height="200px"
+            width="300px">
+        </div>
+
+        <div>
+            <div style="position:absolute; z-index:1;" id="layer1">
+                <div class="modal-body" style="margin:30px 0px 0px 400px">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <h1>Login</h1>
+                                <label for="username" class="custom-control-label">Username</label>
+                                <input type="text" class="form-control" id="username" title="Enter your email:" placeholder="example@webmail.com" />
+                                <span class="form-check"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="password" class="custom-control-label">Password</label>
+                                <input type="password" class="form-control" title="Password" placeholder="Please enter a Password" />
+                                <span class="form-check"></span>
+                            </div>
+                            <button type="submit" class="btn btn-success btn-block">Login</button>
+                            <button type="submit" class="btn btn-success btn-block">Forgot Password</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </form>
+</body>
+</html>
+
